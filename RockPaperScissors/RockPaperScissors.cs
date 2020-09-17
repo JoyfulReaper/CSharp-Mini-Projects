@@ -10,24 +10,25 @@ namespace RockPaperScissors
     {
         Invalid, Rock, Paper, Scissors
     }
+
     public class RockPaperScissors
     {
         private static ConsoleColor DefaultColor { get; set; } = ConsoleColor.Blue;
+        private static int playerScore = 0;
+        private static Item playerItem = Item.Invalid;
+
+        private static int computerScore = 0;
+        private static Item computerItem = Item.Invalid;
+
+        private static Random random = new Random();
+        private static bool playerWon = false;
+
         public static void Main()
         {
-            int playerScore = 0;
-            Item playerItem = Item.Invalid;
-
-            int computerScore = 0;
-            Item computerItem;
-
-            Random random = new Random();
-            bool playerWon;
-
             Console.WriteLine();
+
             while (true)
             {
-                playerWon = false;
                 computerItem = (Item)random.Next(1, 4);
 
                 Console.WriteLine($"Your Score: {playerScore} Computer score: {computerScore}");
@@ -101,6 +102,7 @@ namespace RockPaperScissors
                     ColorWriteLine(ConsoleColor.Yellow, "Tie!");
                 }
 
+                playerWon = false;
                 Console.WriteLine();
             }
 
