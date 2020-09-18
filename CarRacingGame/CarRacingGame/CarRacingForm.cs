@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace CarRacingGame
@@ -28,7 +28,7 @@ namespace CarRacingGame
 
         private void MoveEnemy(int speed)
         {
-            int x, y;
+            int x;
 
             if (enemy1.Top >= 500)
             {
@@ -63,7 +63,7 @@ namespace CarRacingGame
 
         private void MoveCoins(int speed)
         {
-            int x, y;
+            int x;
 
             if (coin1.Top >= 500)
             {
