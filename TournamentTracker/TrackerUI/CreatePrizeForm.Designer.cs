@@ -55,7 +55,7 @@
             // 
             // textBoxPlaceNumber
             // 
-            this.textBoxPlaceNumber.Location = new System.Drawing.Point(226, 79);
+            this.textBoxPlaceNumber.Location = new System.Drawing.Point(260, 79);
             this.textBoxPlaceNumber.Name = "textBoxPlaceNumber";
             this.textBoxPlaceNumber.Size = new System.Drawing.Size(201, 35);
             this.textBoxPlaceNumber.TabIndex = 11;
@@ -65,7 +65,7 @@
             this.lblPlaceNumber.AutoSize = true;
             this.lblPlaceNumber.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlaceNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.lblPlaceNumber.Location = new System.Drawing.Point(14, 76);
+            this.lblPlaceNumber.Location = new System.Drawing.Point(48, 76);
             this.lblPlaceNumber.Name = "lblPlaceNumber";
             this.lblPlaceNumber.Size = new System.Drawing.Size(183, 37);
             this.lblPlaceNumber.TabIndex = 10;
@@ -73,7 +73,7 @@
             // 
             // textBoxPlaceName
             // 
-            this.textBoxPlaceName.Location = new System.Drawing.Point(226, 146);
+            this.textBoxPlaceName.Location = new System.Drawing.Point(260, 146);
             this.textBoxPlaceName.Name = "textBoxPlaceName";
             this.textBoxPlaceName.Size = new System.Drawing.Size(201, 35);
             this.textBoxPlaceName.TabIndex = 13;
@@ -83,7 +83,7 @@
             this.lblPlaceName.AutoSize = true;
             this.lblPlaceName.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlaceName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.lblPlaceName.Location = new System.Drawing.Point(14, 143);
+            this.lblPlaceName.Location = new System.Drawing.Point(48, 143);
             this.lblPlaceName.Name = "lblPlaceName";
             this.lblPlaceName.Size = new System.Drawing.Size(157, 37);
             this.lblPlaceName.TabIndex = 12;
@@ -91,17 +91,18 @@
             // 
             // textBoxPrizeAmount
             // 
-            this.textBoxPrizeAmount.Location = new System.Drawing.Point(226, 213);
+            this.textBoxPrizeAmount.Location = new System.Drawing.Point(260, 213);
             this.textBoxPrizeAmount.Name = "textBoxPrizeAmount";
             this.textBoxPrizeAmount.Size = new System.Drawing.Size(201, 35);
             this.textBoxPrizeAmount.TabIndex = 15;
+            this.textBoxPrizeAmount.Text = "0";
             // 
             // lblPrizeAmount
             // 
             this.lblPrizeAmount.AutoSize = true;
             this.lblPrizeAmount.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrizeAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.lblPrizeAmount.Location = new System.Drawing.Point(14, 210);
+            this.lblPrizeAmount.Location = new System.Drawing.Point(48, 210);
             this.lblPrizeAmount.Name = "lblPrizeAmount";
             this.lblPrizeAmount.Size = new System.Drawing.Size(176, 37);
             this.lblPrizeAmount.TabIndex = 14;
@@ -109,17 +110,18 @@
             // 
             // textBoxPrizePercentage
             // 
-            this.textBoxPrizePercentage.Location = new System.Drawing.Point(226, 347);
+            this.textBoxPrizePercentage.Location = new System.Drawing.Point(260, 347);
             this.textBoxPrizePercentage.Name = "textBoxPrizePercentage";
             this.textBoxPrizePercentage.Size = new System.Drawing.Size(201, 35);
             this.textBoxPrizePercentage.TabIndex = 17;
+            this.textBoxPrizePercentage.Text = "0";
             // 
             // lblPrizePercent
             // 
             this.lblPrizePercent.AutoSize = true;
             this.lblPrizePercent.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrizePercent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.lblPrizePercent.Location = new System.Drawing.Point(12, 344);
+            this.lblPrizePercent.Location = new System.Drawing.Point(46, 344);
             this.lblPrizePercent.Name = "lblPrizePercent";
             this.lblPrizePercent.Size = new System.Drawing.Size(212, 37);
             this.lblPrizePercent.TabIndex = 16;
@@ -130,7 +132,7 @@
             this.lblOr.AutoSize = true;
             this.lblOr.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.lblOr.Location = new System.Drawing.Point(177, 281);
+            this.lblOr.Location = new System.Drawing.Point(211, 281);
             this.lblOr.Name = "lblOr";
             this.lblOr.Size = new System.Drawing.Size(82, 37);
             this.lblOr.TabIndex = 18;
@@ -144,12 +146,13 @@
             this.btnCreatePrize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreatePrize.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreatePrize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnCreatePrize.Location = new System.Drawing.Point(107, 431);
+            this.btnCreatePrize.Location = new System.Drawing.Point(119, 431);
             this.btnCreatePrize.Name = "btnCreatePrize";
             this.btnCreatePrize.Size = new System.Drawing.Size(268, 82);
             this.btnCreatePrize.TabIndex = 21;
             this.btnCreatePrize.Text = "Create Prize";
             this.btnCreatePrize.UseVisualStyleBackColor = true;
+            this.btnCreatePrize.Click += new System.EventHandler(this.btnCreatePrize_Click);
             // 
             // CreatePrizeForm
             // 
