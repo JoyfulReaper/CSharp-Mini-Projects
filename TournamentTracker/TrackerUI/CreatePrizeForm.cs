@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TrackerLibrary;
+using TrackerLibrary.Models;
+using TrackerLibrary.DataAccess;
 
 namespace TrackerUI
 {
@@ -28,10 +30,7 @@ namespace TrackerUI
                     textBoxPrizeAmount.Text,
                     textBoxPrizePercentage.Text);
 
-                foreach (IDataConnection db in GlobalConfig.Connections)
-                {
-                    db.CreatePrize(model);
-                }
+                GlobalConfig.Connection.CreatePrize(model);
 
                 textBoxPlaceName.Text = "";
                 textBoxPlaceNumber.Text = "";
@@ -44,17 +43,20 @@ namespace TrackerUI
             }
         }
 
+        /// <summary>
+        /// Validate that form information is valid
+        /// </summary>
+        /// <returns>True if valid, otherwise false</returns>
         private bool ValidateForm()
         {
             bool output = true;
-            int placeNumber = 0;
 
-            if(!int.TryParse(textBoxPlaceNumber.Text, out placeNumber))
+            if (!int.TryParse(textBoxPlaceNumber.Text, out int placeNumber))
             {
                 output = false;
             }
 
-            if(placeNumber < 1)
+            if (placeNumber < 1)
             {
                 output = false;
             }
@@ -64,11 +66,9 @@ namespace TrackerUI
                 output = false;
             }
 
-            decimal prizeAmount = 0;
-            double prizePercentage = 0;
 
-            bool prizeAmountValid = decimal.TryParse(textBoxPrizeAmount.Text, out prizeAmount);
-            bool prizePercentageValid = double.TryParse(textBoxPrizePercentage.Text, out prizePercentage);
+            bool prizeAmountValid = decimal.TryParse(textBoxPrizeAmount.Text, out decimal prizeAmount);
+            bool prizePercentageValid = double.TryParse(textBoxPrizePercentage.Text, out double prizePercentage);
 
             if(!prizeAmountValid || !prizePercentageValid)
             {
