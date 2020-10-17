@@ -26,5 +26,10 @@
         /// Represents this Person's Cellphone number
         /// </summary>
         public string CellphoneNumber { get; set; }
+
+        public string FullName
+        {
+            get => $"{FirstName} {LastName}";
+        }
     }
 }

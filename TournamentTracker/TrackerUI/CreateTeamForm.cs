@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using TrackerLibrary;
 using TrackerLibrary.Models;
@@ -7,9 +8,38 @@ namespace TrackerUI
 {
     public partial class CreateTeamForm : Form
     {
+        private List<PersonModel> availableTeamMembers = GlobalConfig.Connection.GetPerson_All();
+        private List<PersonModel> selectedTeamMembers = new List<PersonModel>();
+
         public CreateTeamForm()
         {
             InitializeComponent();
+
+            //CreateSampleData();
+
+            WireUpLists();
+        }
+
+        private void WireUpLists()
+        {
+            cbSelectMemberDropDown.DataSource = null;
+
+            cbSelectMemberDropDown.DataSource = availableTeamMembers;
+            cbSelectMemberDropDown.DisplayMember = nameof(PersonModel.FullName);
+
+            listBoxTeamMembers.DataSource = null;
+
+            listBoxTeamMembers.DataSource = selectedTeamMembers;
+            listBoxTeamMembers.DisplayMember = nameof(PersonModel.FullName);
+        }
+
+        private void CreateSampleData()
+        {
+            availableTeamMembers.Add(new PersonModel { FirstName = "Tim", LastName = "Corey" });
+            availableTeamMembers.Add(new PersonModel { FirstName = "Sue", LastName = "Storm" });
+
+            selectedTeamMembers.Add(new PersonModel { FirstName = "Jane", LastName = "Smith" });
+            selectedTeamMembers.Add(new PersonModel { FirstName = "Bill", LastName = "Jones" });
         }
 
         private void btnCreateMember_Click(object sender, EventArgs e)
@@ -23,7 +53,9 @@ namespace TrackerUI
                 p.EmailAddress = textBoxEmail.Text;
                 p.CellphoneNumber = textBoxCellphone.Text;
 
-                GlobalConfig.Connection.CreatePerson(p);
+                p = GlobalConfig.Connection.CreatePerson(p);
+                selectedTeamMembers.Add(p);
+                WireUpLists();
 
                 textBoxFirstName.Text = "";
                 textBoxLastName.Text = "";
@@ -56,6 +88,40 @@ namespace TrackerUI
             }
 
             return true;
+        }
+
+        private void btnAddMember_Click(object sender, EventArgs e)
+        {
+            PersonModel p = (PersonModel)cbSelectMemberDropDown.SelectedItem;
+
+            if (p != null)
+            {
+                availableTeamMembers.Remove(p);
+                selectedTeamMembers.Add(p);
+
+                WireUpLists(); 
+            }
+        }
+
+        private void cbSelectMemberDropDown_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Enter)
+            {
+                btnAddMember_Click(this, EventArgs.Empty);
+            }
+        }
+
+        private void btnRemoveMember_Click(object sender, EventArgs e)
+        {
+            PersonModel p = (PersonModel)listBoxTeamMembers.SelectedItem;
+
+            if (p != null)
+            {
+                availableTeamMembers.Add(p);
+                selectedTeamMembers.Remove(p);
+
+                WireUpLists(); 
+            }
         }
     }
 }
