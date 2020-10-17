@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TrackerLibrary.Models;
 using TrackerLibrary.DataAccess.TextHelpers;
 
@@ -11,8 +8,26 @@ namespace TrackerLibrary.DataAccess
     public class TextConnector : IDataConnection
     {
         private const string PrizesFile = "PrizeModels.csv";
+        private const string PeopleFile = "PeopleModels.csv";
 
-        // TODO - Make the create prize method save to a text file
+        public PersonModel CreatePerson(PersonModel model)
+        {
+            List<PersonModel> people = PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
+
+            int currentId = 1;
+            if(people.Count > 0)
+            {
+                currentId = people.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+
+            model.Id = currentId;
+
+            people.Add(model);
+            people.SaveToPeopleFile(PeopleFile);
+
+            return model;
+        }
+
         /// <summary>
         /// Save a new prize to a text file
         /// </summary>
@@ -32,7 +47,7 @@ namespace TrackerLibrary.DataAccess
 
             model.Id = currentId;
 
-            // Add the new record with the nre ID (max + 1)
+            // Add the new record with the new ID (max + 1)
             prizes.Add(model);
 
             // Save the list<string> to the text file

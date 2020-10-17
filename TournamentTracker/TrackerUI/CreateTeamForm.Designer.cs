@@ -36,6 +36,7 @@
             this.cbSelectMemberDropDown = new System.Windows.Forms.ComboBox();
             this.lblSelectMember = new System.Windows.Forms.Label();
             this.groupBoxAddNewMember = new System.Windows.Forms.GroupBox();
+            this.btnCreateMember = new System.Windows.Forms.Button();
             this.textBoxCellphone = new System.Windows.Forms.TextBox();
             this.lblCellPhone = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
@@ -44,7 +45,6 @@
             this.lblLastName = new System.Windows.Forms.Label();
             this.textBoxFirstName = new System.Windows.Forms.TextBox();
             this.lblTeamFirstName = new System.Windows.Forms.Label();
-            this.btmCreateMember = new System.Windows.Forms.Button();
             this.listBoxTeamMembers = new System.Windows.Forms.ListBox();
             this.btnDeleteMember = new System.Windows.Forms.Button();
             this.btnCreateTeam = new System.Windows.Forms.Button();
@@ -116,7 +116,7 @@
             // 
             // groupBoxAddNewMember
             // 
-            this.groupBoxAddNewMember.Controls.Add(this.btmCreateMember);
+            this.groupBoxAddNewMember.Controls.Add(this.btnCreateMember);
             this.groupBoxAddNewMember.Controls.Add(this.textBoxCellphone);
             this.groupBoxAddNewMember.Controls.Add(this.lblCellPhone);
             this.groupBoxAddNewMember.Controls.Add(this.textBoxEmail);
@@ -133,6 +133,22 @@
             this.groupBoxAddNewMember.TabIndex = 17;
             this.groupBoxAddNewMember.TabStop = false;
             this.groupBoxAddNewMember.Text = "Add New Member";
+            // 
+            // btnCreateMember
+            // 
+            this.btnCreateMember.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.btnCreateMember.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.btnCreateMember.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.btnCreateMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreateMember.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateMember.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnCreateMember.Location = new System.Drawing.Point(88, 314);
+            this.btnCreateMember.Name = "btnCreateMember";
+            this.btnCreateMember.Size = new System.Drawing.Size(207, 52);
+            this.btnCreateMember.TabIndex = 17;
+            this.btnCreateMember.Text = "Create Member";
+            this.btnCreateMember.UseVisualStyleBackColor = true;
+            this.btnCreateMember.Click += new System.EventHandler(this.btnCreateMember_Click);
             // 
             // textBoxCellphone
             // 
@@ -205,21 +221,6 @@
             this.lblTeamFirstName.Size = new System.Drawing.Size(144, 37);
             this.lblTeamFirstName.TabIndex = 6;
             this.lblTeamFirstName.Text = "First Name";
-            // 
-            // btmCreateMember
-            // 
-            this.btmCreateMember.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.btmCreateMember.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.btmCreateMember.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.btmCreateMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btmCreateMember.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btmCreateMember.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btmCreateMember.Location = new System.Drawing.Point(88, 314);
-            this.btmCreateMember.Name = "btmCreateMember";
-            this.btmCreateMember.Size = new System.Drawing.Size(207, 52);
-            this.btmCreateMember.TabIndex = 17;
-            this.btmCreateMember.Text = "Create Member";
-            this.btmCreateMember.UseVisualStyleBackColor = true;
             // 
             // listBoxTeamMembers
             // 
@@ -305,7 +306,7 @@
         private System.Windows.Forms.Label lblCellPhone;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Button btmCreateMember;
+        private System.Windows.Forms.Button btnCreateMember;
         private System.Windows.Forms.ListBox listBoxTeamMembers;
         private System.Windows.Forms.Button btnDeleteMember;
         private System.Windows.Forms.Button btnCreateTeam;
