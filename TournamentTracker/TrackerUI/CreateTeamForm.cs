@@ -10,10 +10,13 @@ namespace TrackerUI
     {
         private readonly List<PersonModel> availableTeamMembers = GlobalConfig.Connection.GetPerson_All();
         private readonly List<PersonModel> selectedTeamMembers = new List<PersonModel>();
+        private ITeamRequester callingForm;
 
-        public CreateTeamForm()
+        public CreateTeamForm(ITeamRequester caller)
         {
             InitializeComponent();
+
+            this.callingForm = caller;
 
             //CreateSampleData();
 
@@ -126,13 +129,21 @@ namespace TrackerUI
 
         private void btnCreateTeam_Click(object sender, EventArgs e)
         {
+            if(textBoxTeamName.Text == "")
+            {
+                MessageBox.Show("Team name cannot be empty.");
+                return;
+            }
+
             TeamModel t = new TeamModel();
+
             t.TeamName = textBoxTeamName.Text;
             t.TeamMembers = selectedTeamMembers;
 
-            t = GlobalConfig.Connection.CreateTeam(t);
+            GlobalConfig.Connection.CreateTeam(t);
 
-            // TODO - If not closing this form after creation, reset the form
+            callingForm.TeamComplete(t);
+            this.Close();
         }
     }
 }

@@ -5,7 +5,7 @@ using TrackerLibrary.Models;
 
 namespace TrackerUI
 {
-    public partial class CreateTournamentForm : Form
+    public partial class CreateTournamentForm : Form, IPrizeRequester, ITeamRequester
     {
         readonly List<TeamModel> availableTeams = GlobalConfig.Connection.GetTeam_All();
         readonly List<TeamModel> selectedTeams = new List<TeamModel>();
@@ -43,6 +43,67 @@ namespace TrackerUI
 
                 WireUpLists();
             }
+        }
+
+        private void btnCreatePrize_Click(object sender, System.EventArgs e)
+        {
+            // Call the CreatePrizeForm
+            CreatePrizeForm frm = new CreatePrizeForm(this);
+            frm.Show();
+
+
+        }
+
+        public void PrizeComplete(PrizeModel model)
+        {
+            // Get back from the form a prize model
+            // Put prize model in to list of selected prizes
+            selectedPrizes.Add(model);
+
+            WireUpLists();
+        }
+
+        public void TeamComplete(TeamModel model)
+        {
+            selectedTeams.Add(model);
+
+            WireUpLists();
+        }
+
+        private void linkNewTeam_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CreateTeamForm frm = new CreateTeamForm(this);
+            frm.Show();
+        }
+
+        private void btnRemoveTeam_Click(object sender, System.EventArgs e)
+        {
+            TeamModel t = (TeamModel)listBoxTournamentTeams.SelectedItem;
+
+            if (t != null)
+            {
+                availableTeams.Add(t);
+                selectedTeams.Remove(t);
+
+                WireUpLists();
+            }
+        }
+
+        private void btnRemovePrize_Click(object sender, System.EventArgs e)
+        {
+            PrizeModel p = (PrizeModel)listBoxPrizes.SelectedItem;
+
+            if (p != null)
+            {
+                selectedPrizes.Remove(p);
+
+                WireUpLists();
+            }
+        }
+
+        private void btnCreateTournament_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }
