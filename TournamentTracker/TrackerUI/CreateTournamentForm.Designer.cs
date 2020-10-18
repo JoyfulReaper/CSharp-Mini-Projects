@@ -1,6 +1,6 @@
 ﻿namespace TrackerUI
 {
-    partial class CreateTournamentForn
+    partial class CreateTournamentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateTournamentForn));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateTournamentForm));
             this.lblHeader = new System.Windows.Forms.Label();
             this.textBoxTournamentName = new System.Windows.Forms.TextBox();
             this.lblTournamentName = new System.Windows.Forms.Label();
@@ -39,7 +39,7 @@
             this.linkNewTeam = new System.Windows.Forms.LinkLabel();
             this.btnAddTeam = new System.Windows.Forms.Button();
             this.btnCreateTournament = new System.Windows.Forms.Button();
-            this.listBoxTournamentPlayers = new System.Windows.Forms.ListBox();
+            this.listBoxTournamentTeams = new System.Windows.Forms.ListBox();
             this.lblTournamentPlayers = new System.Windows.Forms.Label();
             this.btnDeletePlayer = new System.Windows.Forms.Button();
             this.btnDeletePrize = new System.Windows.Forms.Button();
@@ -139,6 +139,7 @@
             this.btnAddTeam.TabIndex = 13;
             this.btnAddTeam.Text = "Add Team";
             this.btnAddTeam.UseVisualStyleBackColor = true;
+            this.btnAddTeam.Click += new System.EventHandler(this.btnAddTeam_Click);
             // 
             // btnCreateTournament
             // 
@@ -148,22 +149,22 @@
             this.btnCreateTournament.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateTournament.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateTournament.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnCreateTournament.Location = new System.Drawing.Point(332, 535);
+            this.btnCreateTournament.Location = new System.Drawing.Point(344, 546);
             this.btnCreateTournament.Name = "btnCreateTournament";
             this.btnCreateTournament.Size = new System.Drawing.Size(207, 52);
             this.btnCreateTournament.TabIndex = 13;
             this.btnCreateTournament.Text = "Create Tournament";
             this.btnCreateTournament.UseVisualStyleBackColor = true;
             // 
-            // listBoxTournamentPlayers
+            // listBoxTournamentTeams
             // 
-            this.listBoxTournamentPlayers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBoxTournamentPlayers.FormattingEnabled = true;
-            this.listBoxTournamentPlayers.ItemHeight = 30;
-            this.listBoxTournamentPlayers.Location = new System.Drawing.Point(403, 100);
-            this.listBoxTournamentPlayers.Name = "listBoxTournamentPlayers";
-            this.listBoxTournamentPlayers.Size = new System.Drawing.Size(302, 182);
-            this.listBoxTournamentPlayers.TabIndex = 14;
+            this.listBoxTournamentTeams.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBoxTournamentTeams.FormattingEnabled = true;
+            this.listBoxTournamentTeams.ItemHeight = 30;
+            this.listBoxTournamentTeams.Location = new System.Drawing.Point(403, 100);
+            this.listBoxTournamentTeams.Name = "listBoxTournamentTeams";
+            this.listBoxTournamentTeams.Size = new System.Drawing.Size(302, 182);
+            this.listBoxTournamentTeams.TabIndex = 14;
             // 
             // lblTournamentPlayers
             // 
@@ -242,7 +243,7 @@
             this.btnCreatePrize.Text = "Create Prize";
             this.btnCreatePrize.UseVisualStyleBackColor = true;
             // 
-            // CreateTournamentForn
+            // CreateTournamentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -252,7 +253,7 @@
             this.Controls.Add(this.listBoxPrizes);
             this.Controls.Add(this.lblPrizes);
             this.Controls.Add(this.btnDeletePlayer);
-            this.Controls.Add(this.listBoxTournamentPlayers);
+            this.Controls.Add(this.listBoxTournamentTeams);
             this.Controls.Add(this.btnCreateTournament);
             this.Controls.Add(this.btnCreatePrize);
             this.Controls.Add(this.btnAddTeam);
@@ -268,7 +269,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.Name = "CreateTournamentForn";
+            this.Name = "CreateTournamentForm";
             this.Text = "Create Tournament";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -287,7 +288,7 @@
         private System.Windows.Forms.LinkLabel linkNewTeam;
         private System.Windows.Forms.Button btnAddTeam;
         private System.Windows.Forms.Button btnCreateTournament;
-        private System.Windows.Forms.ListBox listBoxTournamentPlayers;
+        private System.Windows.Forms.ListBox listBoxTournamentTeams;
         private System.Windows.Forms.Label lblTournamentPlayers;
         private System.Windows.Forms.Button btnDeletePlayer;
         private System.Windows.Forms.Button btnDeletePrize;

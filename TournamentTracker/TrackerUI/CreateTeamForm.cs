@@ -8,8 +8,8 @@ namespace TrackerUI
 {
     public partial class CreateTeamForm : Form
     {
-        private List<PersonModel> availableTeamMembers = GlobalConfig.Connection.GetPerson_All();
-        private List<PersonModel> selectedTeamMembers = new List<PersonModel>();
+        private readonly List<PersonModel> availableTeamMembers = GlobalConfig.Connection.GetPerson_All();
+        private readonly List<PersonModel> selectedTeamMembers = new List<PersonModel>();
 
         public CreateTeamForm()
         {
