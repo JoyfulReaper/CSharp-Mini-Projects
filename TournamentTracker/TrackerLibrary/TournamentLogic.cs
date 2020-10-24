@@ -45,7 +45,7 @@ namespace TrackerLibrary
                 model.Rounds.Add(currentRound);
                 previousRound = currentRound;
                 currentRound = new List<MatchupModel>();
-                rounds++;
+                round++;
             }
         }
 
