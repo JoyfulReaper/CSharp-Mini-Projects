@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TournamentDashboardForm));
             this.lblHeader = new System.Windows.Forms.Label();
-            this.cbSelectMemberDropDown = new System.Windows.Forms.ComboBox();
+            this.cbSelectTournament = new System.Windows.Forms.ComboBox();
             this.lblLoadExistingTournament = new System.Windows.Forms.Label();
             this.btnLoadTournament = new System.Windows.Forms.Button();
             this.btnCreateTournament = new System.Windows.Forms.Button();
@@ -47,13 +47,13 @@
             this.lblHeader.TabIndex = 10;
             this.lblHeader.Text = "Tournament Dashboard";
             // 
-            // cbSelectMemberDropDown
+            // cbSelectTournament
             // 
-            this.cbSelectMemberDropDown.FormattingEnabled = true;
-            this.cbSelectMemberDropDown.Location = new System.Drawing.Point(119, 165);
-            this.cbSelectMemberDropDown.Name = "cbSelectMemberDropDown";
-            this.cbSelectMemberDropDown.Size = new System.Drawing.Size(395, 38);
-            this.cbSelectMemberDropDown.TabIndex = 17;
+            this.cbSelectTournament.FormattingEnabled = true;
+            this.cbSelectTournament.Location = new System.Drawing.Point(119, 165);
+            this.cbSelectTournament.Name = "cbSelectTournament";
+            this.cbSelectTournament.Size = new System.Drawing.Size(395, 38);
+            this.cbSelectTournament.TabIndex = 17;
             // 
             // lblLoadExistingTournament
             // 
@@ -95,6 +95,7 @@
             this.btnCreateTournament.TabIndex = 22;
             this.btnCreateTournament.Text = "Create Tournament";
             this.btnCreateTournament.UseVisualStyleBackColor = true;
+            this.btnCreateTournament.Click += new System.EventHandler(this.btnCreateTournament_Click);
             // 
             // TournamentDashboardForm
             // 
@@ -104,7 +105,7 @@
             this.ClientSize = new System.Drawing.Size(632, 394);
             this.Controls.Add(this.btnCreateTournament);
             this.Controls.Add(this.btnLoadTournament);
-            this.Controls.Add(this.cbSelectMemberDropDown);
+            this.Controls.Add(this.cbSelectTournament);
             this.Controls.Add(this.lblLoadExistingTournament);
             this.Controls.Add(this.lblHeader);
             this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,7 +121,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblHeader;
-        private System.Windows.Forms.ComboBox cbSelectMemberDropDown;
+        private System.Windows.Forms.ComboBox cbSelectTournament;
         private System.Windows.Forms.Label lblLoadExistingTournament;
         private System.Windows.Forms.Button btnLoadTournament;
         private System.Windows.Forms.Button btnCreateTournament;
