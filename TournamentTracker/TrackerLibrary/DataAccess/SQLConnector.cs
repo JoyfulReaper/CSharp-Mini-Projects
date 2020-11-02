@@ -253,6 +253,7 @@ namespace TrackerLibrary.DataAccess
                         p.Add("@MatchupId", m.Id);
 
                         // Populate Rounds
+                        // TODO - TeamCompetingID not working
                         m.Entries = connection.Query<MatchupEntryModel>("spMatchupsEntires_GetByMatchup", p, commandType: CommandType.StoredProcedure).ToList();
 
                         var allTeams = GetTeam_All();
@@ -264,9 +265,9 @@ namespace TrackerLibrary.DataAccess
 
                         foreach (var me in m.Entries)
                         {
-                            if(me.TeamCompeteingId > 0)
+                            if(me.TeamCompetingId > 0)
                             {
-                                me.TeamCompeting = allTeams.Where(x => x.Id == me.TeamCompeteingId).First();
+                                me.TeamCompeting = allTeams.Where(x => x.Id == me.TeamCompetingId).First();
                             }
 
                             if(me.ParentMatchupId > 0)

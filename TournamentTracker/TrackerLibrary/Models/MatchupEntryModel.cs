@@ -10,7 +10,7 @@
         /// <summary>
         /// The unique identifer for the team.
         /// </summary>
-        public int TeamCompeteingId { get; set; }
+        public int TeamCompetingId { get; set; }
 
         /// <summary>
         /// Represents one team in the Matchup.

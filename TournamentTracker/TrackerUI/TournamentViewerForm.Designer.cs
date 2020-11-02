@@ -85,6 +85,7 @@
             this.cbRoundDropDown.Name = "cbRoundDropDown";
             this.cbRoundDropDown.Size = new System.Drawing.Size(211, 38);
             this.cbRoundDropDown.TabIndex = 2;
+            this.cbRoundDropDown.SelectedIndexChanged += new System.EventHandler(this.cbRoundDropDown_SelectedIndexChanged);
             // 
             // checkUnplayedOnly
             // 
@@ -108,6 +109,7 @@
             this.listBoxMatchup.Name = "listBoxMatchup";
             this.listBoxMatchup.Size = new System.Drawing.Size(302, 302);
             this.listBoxMatchup.TabIndex = 4;
+            this.listBoxMatchup.SelectedIndexChanged += new System.EventHandler(this.listBoxMatchup_SelectedIndexChanged);
             // 
             // lblTeamOneName
             // 
