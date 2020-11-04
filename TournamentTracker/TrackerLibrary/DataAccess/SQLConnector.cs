@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Xml;
-using System.Xml.Linq;
 using TrackerLibrary.Models;
 
 //@PlaceNumber int,
@@ -148,6 +146,7 @@ namespace TrackerLibrary.DataAccess
                     foreach (var entry in matchup.Entries)
                     {
                         p = new DynamicParameters();
+
                         p.Add("@MatchupId", matchup.Id);
                         if (entry.ParentMatchup == null)
                         {
@@ -166,6 +165,7 @@ namespace TrackerLibrary.DataAccess
                         {
                             p.Add("@TeamCompetingId", entry.TeamCompeting.Id);
                         }
+
                         p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                         connection.Execute("dbo.spMatchupEntries_Insert", p, commandType: CommandType.StoredProcedure);
@@ -216,13 +216,13 @@ namespace TrackerLibrary.DataAccess
         public List<TournamentModel> GetTournament_All()
         {
             List<TournamentModel> output;
-            var p = new DynamicParameters();
 
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
             {
                 output = connection.Query<TournamentModel>("dbo.spTournaments_GetAll").ToList();
+                var p = new DynamicParameters();
 
-                foreach(TournamentModel t in output)
+                foreach (TournamentModel t in output)
                 {
                     // Populate Prizes
                     p = new DynamicParameters();
@@ -297,6 +297,36 @@ namespace TrackerLibrary.DataAccess
             }
 
             return output;
+        }
+
+        public void UpdateMatchup(MatchupModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                // spMatchups_Update @id, @winnerId
+                var p = new DynamicParameters();
+                if (model.Winner != null)
+                {
+                    p.Add("@id", model.Id);
+                    p.Add("@WinnerId", model.Winner.Id);
+
+                    connection.Execute("dbo.spMatchups_Update", p, commandType: CommandType.StoredProcedure); 
+                }
+
+                // spMatchupEntries_Update id, TeamCompetingId, Score
+                foreach(var me in model.Entries)
+                {
+                    if (me.TeamCompeting != null)
+                    {
+                        p = new DynamicParameters();
+                        p.Add("@id", me.Id);
+                        p.Add("@TeamCompetingId", me.TeamCompeting.Id);
+                        p.Add("@Score", me.Score);
+
+                        connection.Execute("dbo.spMatchupEntries_Update", p, commandType: CommandType.StoredProcedure); 
+                    }
+                }
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using TrackerLibrary;
 using TrackerLibrary.Models;
 
@@ -6,7 +7,7 @@ namespace TrackerUI
 {
     public partial class TournamentDashboardForm : Form
     {
-        System.Collections.Generic.List<TournamentModel> tournaments = GlobalConfig.Connection.GetTournament_All();
+        List<TournamentModel> tournaments = GlobalConfig.Connection.GetTournament_All();
 
         public TournamentDashboardForm()
         {
