@@ -74,13 +74,13 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             return output;
         }
 
-        public static List<TeamModel> ConvertToTeamModels(this List<string> lines, string peopleFileName)
+        public static List<TeamModel> ConvertToTeamModels(this List<string> lines)
         {
             // id, team name, list of ids seperated by pipe
             // 3, My Team, 1|3|5
 
             List<TeamModel> output = new List<TeamModel>();
-            List<PersonModel> people = peopleFileName.FullFilePath().LoadFile().ConvertToPersonModels();
+            List<PersonModel> people = GlobalConfig.PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
 
             foreach (var line in lines)
             {
@@ -101,17 +101,13 @@ namespace TrackerLibrary.DataAccess.TextHelpers
             return output;
         }
 
-        public static List<TournamentModel> ConvertToTournamentModels(
-            this List<string> lines,
-            string teamFileName,
-            string peopleFileName,
-            string prizeFileName)
+        public static List<TournamentModel> ConvertToTournamentModels(this List<string> lines)
         {
             // id = 0, tournament name = 1, EntryFee = 2, EnteredTeams = 3, Prizes = 4, Rounds = 5
             // id,TournamentName,EntryFee,(id|id|id - Entered Teams),(id|id|id - Prizes),(Rounds - id^id^id|id^id^id|id^id^id)
             var output = new List<TournamentModel>();
-            var teams = teamFileName.FullFilePath().LoadFile().ConvertToTeamModels(peopleFileName);
-            var prizes = prizeFileName.FullFilePath().LoadFile().ConvertToPrizeModels();
+            var teams = GlobalConfig.TeamFile.FullFilePath().LoadFile().ConvertToTeamModels();
+            var prizes = GlobalConfig.PrizesFile.FullFilePath().LoadFile().ConvertToPrizeModels();
             var matchups = GlobalConfig.MatchupFile.FullFilePath().LoadFile().ConvertToMatchupModels();
 
             foreach (var line in lines)
@@ -326,7 +322,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
                 {
                     List<string> matchingTeams = new List<string>();
                     matchingTeams.Add(team);
-                    return matchingTeams.ConvertToTeamModels(GlobalConfig.PeopleFile).First();
+                    return matchingTeams.ConvertToTeamModels().First();
                 }
             }
 

@@ -150,9 +150,9 @@
             this.btnCreateTournament.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCreateTournament.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateTournament.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnCreateTournament.Location = new System.Drawing.Point(344, 546);
+            this.btnCreateTournament.Location = new System.Drawing.Point(334, 529);
             this.btnCreateTournament.Name = "btnCreateTournament";
-            this.btnCreateTournament.Size = new System.Drawing.Size(207, 52);
+            this.btnCreateTournament.Size = new System.Drawing.Size(226, 69);
             this.btnCreateTournament.TabIndex = 13;
             this.btnCreateTournament.Text = "Create Tournament";
             this.btnCreateTournament.UseVisualStyleBackColor = true;
@@ -163,7 +163,7 @@
             this.listBoxTournamentTeams.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBoxTournamentTeams.FormattingEnabled = true;
             this.listBoxTournamentTeams.ItemHeight = 30;
-            this.listBoxTournamentTeams.Location = new System.Drawing.Point(403, 100);
+            this.listBoxTournamentTeams.Location = new System.Drawing.Point(402, 85);
             this.listBoxTournamentTeams.Name = "listBoxTournamentTeams";
             this.listBoxTournamentTeams.Size = new System.Drawing.Size(302, 182);
             this.listBoxTournamentTeams.TabIndex = 14;
@@ -173,7 +173,7 @@
             this.lblTournamentPlayers.AutoSize = true;
             this.lblTournamentPlayers.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTournamentPlayers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.lblTournamentPlayers.Location = new System.Drawing.Point(396, 60);
+            this.lblTournamentPlayers.Location = new System.Drawing.Point(395, 45);
             this.lblTournamentPlayers.Name = "lblTournamentPlayers";
             this.lblTournamentPlayers.Size = new System.Drawing.Size(198, 37);
             this.lblTournamentPlayers.TabIndex = 6;
@@ -187,7 +187,7 @@
             this.btnRemoveTeam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveTeam.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveTeam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnRemoveTeam.Location = new System.Drawing.Point(724, 153);
+            this.btnRemoveTeam.Location = new System.Drawing.Point(723, 138);
             this.btnRemoveTeam.Name = "btnRemoveTeam";
             this.btnRemoveTeam.Size = new System.Drawing.Size(124, 77);
             this.btnRemoveTeam.TabIndex = 15;
@@ -203,7 +203,7 @@
             this.btnRemovePrize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemovePrize.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemovePrize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnRemovePrize.Location = new System.Drawing.Point(724, 395);
+            this.btnRemovePrize.Location = new System.Drawing.Point(723, 380);
             this.btnRemovePrize.Name = "btnRemovePrize";
             this.btnRemovePrize.Size = new System.Drawing.Size(124, 75);
             this.btnRemovePrize.TabIndex = 18;
@@ -216,7 +216,7 @@
             this.listBoxPrizes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBoxPrizes.FormattingEnabled = true;
             this.listBoxPrizes.ItemHeight = 30;
-            this.listBoxPrizes.Location = new System.Drawing.Point(403, 341);
+            this.listBoxPrizes.Location = new System.Drawing.Point(402, 326);
             this.listBoxPrizes.Name = "listBoxPrizes";
             this.listBoxPrizes.Size = new System.Drawing.Size(302, 182);
             this.listBoxPrizes.TabIndex = 17;
@@ -226,7 +226,7 @@
             this.lblPrizes.AutoSize = true;
             this.lblPrizes.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrizes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.lblPrizes.Location = new System.Drawing.Point(396, 301);
+            this.lblPrizes.Location = new System.Drawing.Point(395, 286);
             this.lblPrizes.Name = "lblPrizes";
             this.lblPrizes.Size = new System.Drawing.Size(85, 37);
             this.lblPrizes.TabIndex = 16;
