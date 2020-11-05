@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -152,11 +153,56 @@ namespace TrackerUI
 
         private void checkUnplayedOnly_CheckedChanged(object sender, System.EventArgs e)
         {
-            LoadMatchups((int)cbRoundDropDown.SelectedItem);
+            if (cbRoundDropDown.SelectedItem != null)
+            {
+                int round = (int)cbRoundDropDown.SelectedItem;
+                LoadMatchups(round);
+            }
+            else
+            {
+                MessageBox.Show($"Nice try! { cbRoundDropDown.Text } isn't a valid round!");
+            }
+        }
+
+        private string ValidateData()
+        {
+            string output = "";
+
+            double teamOneScore = 0;
+            double teamTwoScore = 0;
+
+            bool scoreOneValid = double.TryParse(textBoxTeamOneScoreValue.Text, out teamOneScore);
+            bool scoreTwoValid = double.TryParse(textBoxTeamTwoScoreValue.Text, out teamTwoScore);
+
+            if(!scoreOneValid)
+            {
+                output = "The Score One Value is not a valid number.";
+            }
+            else if (!scoreTwoValid)
+            {
+                output = "The Score Two Value is not a valid number.";
+            }
+            else if (teamOneScore == 0 && teamTwoScore == 0)
+            {
+                output = "No score was entered for either team.";
+            }
+            else if(teamOneScore == teamTwoScore)
+            {
+                output = "Ties are not permitted!";
+            }
+
+            return output;
         }
 
         private void btnScore_Click(object sender, System.EventArgs e)
         {
+            string errorMessage = ValidateData();
+            if(errorMessage.Length > 0)
+            {
+                MessageBox.Show($"Input Error: { errorMessage }");
+                return;
+            }
+
             MatchupModel m = (MatchupModel)listBoxMatchup.SelectedItem;
             double teamOneScore = 0;
             double teamTwoScore = 0;
@@ -196,7 +242,15 @@ namespace TrackerUI
                 }
             }
 
-            TournamentLogic.UpdateTournamentResults(tournament);
+            try
+            {
+                TournamentLogic.UpdateTournamentResults(tournament);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"The application had the following error: {ex.Message}");
+                return;
+            }
 
             LoadMatchups((int)cbRoundDropDown.SelectedItem);
         }
