@@ -30,6 +30,21 @@ namespace TrackerUI
 
         private void btnLoadTournament_Click(object sender, System.EventArgs e)
         {
+            bool valid = false;
+            foreach (var t in tournaments)
+            {
+                if (t.TournamentName == cbSelectTournament.Text)
+                {
+                    valid = true;
+                }
+            }
+
+            if(!valid)
+            {
+                MessageBox.Show("Please choose a valid tournament.");
+                return;
+            }
+
             TournamentModel tm = (TournamentModel)cbSelectTournament.SelectedItem;
             TournamentViewerForm frm = new TournamentViewerForm(tm);
             frm.Show();

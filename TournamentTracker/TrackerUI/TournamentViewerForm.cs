@@ -46,6 +46,11 @@ namespace TrackerUI
             rounds.Add(1);
             int currRound = 1;
 
+            if(tournament.Rounds[0].Count < 1)
+            {
+                throw new Exception("ERROR: No Rounds in tournament!");
+            }
+
             foreach (var matchups in tournament.Rounds)
             {
                 if (matchups.First().MatchupRound > currRound)

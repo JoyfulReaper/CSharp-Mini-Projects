@@ -116,6 +116,26 @@ namespace TrackerUI
                 return;
             }
 
+            if(textBoxTournamentName.Text.Length < 1)
+            {
+                MessageBox.Show("Please enter a valid tournament name.",
+                  "Invalid Name",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
+
+            if(selectedTeams.Count < 1)
+            {
+                MessageBox.Show("At least 1 team must be entered.",
+                "Invalid Teams",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+
+                return;
+            }
+
             // Create tournament model
             TournamentModel tm = new TournamentModel();
 
@@ -131,6 +151,8 @@ namespace TrackerUI
             // Create all of the prizes entries
             // Create all of the team entries
             GlobalConfig.Connection.CreateTournament(tm);
+
+            tm.AlertUsersToNewRound();
 
             TournamentViewerForm frm = new TournamentViewerForm(tm);
             frm.Show();
